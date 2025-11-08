@@ -1,0 +1,16 @@
+name: My First GitHub Pipeline  # Name your workflow
+on: [push]  # Trigger on push events (you can add pull_request, schedule, etc.)
+jobs:
+  build-and-test:  # Job name
+    runs-on: ubuntu-latest  # Runner (virtual machine)
+    steps:
+      - name: Checkout code  # Step 1: Clone repo
+        uses: actions/checkout@v4  # Use official action
+
+      - name: Run a script  # Step 2: Execute commands
+        run: |
+          echo "Hello from GitHub Actions!"
+          ls -la  # List files for demo
+
+      - name: Install dependencies (example for Node.js)  # Optional: Customize for your project
+        run: npm install  # Replace with your build commands (e.g., pip install for Python)
